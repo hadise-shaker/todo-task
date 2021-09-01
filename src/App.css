@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "IRANyekan";
+  src: url(./assets/font/IRAN.ttf);
+}
+@font-face {
+  font-family: "IRANyekan2";
+  src: url(./assets/font/Yekan.ttf);
+}
+.App {
+  font-family: "IRANyekan2";
+  box-sizing: border-box;
+direction: rtl;
+position: relative;
+/* width: 1440px; */
+height: 1024px;
+
+background: #F5F5F5;
+}
+.btn{
+  background-color: #DE2D26;
+  color: #ffffff;
+  border: none;
+  text-align: center;
+  border-radius: 4px;
+  font-family: IRANYekan;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 16px;
+  cursor: pointer;
+}
+::placeholder{
+  font-family: "IRANyekan2";
+}
