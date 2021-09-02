@@ -24,8 +24,14 @@ const RegisterForm = () => {
     }
     const handlSubmit=(e)=>{
         e.preventDefault();
-        dispatch(addUser({inputs}))
-        history.push("/showtable")
+        if (inputs==="") {
+            alert("تمامی فیلد ها الزامی هستند")
+        }else{
+            dispatch(addUser({inputs}))
+            history.push("/showtable")
+        }
+        
+
     }
     return (
        <>
