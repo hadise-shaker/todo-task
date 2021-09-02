@@ -6,13 +6,6 @@
       "age": "121",
       "email": "admin@gmail.com",
       "id": 4
-    },
-    {
-      "name": "learn constructor",
-      "phone": "232323",
-      "age": "23232",
-      "email": "saeeasad_shaker_ts77@yahoo.com",
-      "id": 5
     }
   ]
 }

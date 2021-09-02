@@ -1,16 +1,17 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import { useDispatch,useSelector } from "react-redux";
 import {getUsers,deleteUser} from "../redux/actions/userActions"
 import "../assets/Css/showTable.css"
 import Button from "./Button"
 import { useHistory } from 'react-router-dom';
+import Modal from './Modal';
 const ShowTable = ({action}) => {
     const history =useHistory();
     const dispatch = useDispatch()
     const users = useSelector((state) => state.allUser.users)
     /* console.log("users",users); */
-
-
+    const [id, setId] = useState()
+    const [show, setShow] = useState(false)
     const handlePush=()=>{
         history.push("/")
     }
@@ -22,8 +23,17 @@ const ShowTable = ({action}) => {
         history.push(`/edit/${info.id}`)
     }
     const handleDelete=(id)=>{
+        setId(id)
+        setShow(true)
+/*         dispatch(deleteUser(id))
+        window.location.reload(); */
+    }
+    const handleDeleteModal=()=>{
         dispatch(deleteUser(id))
         window.location.reload();
+    }
+    const handleCloseModal=()=>{
+        setShow(false)
     }
     useEffect(() => {
         dispatch(getUsers())
@@ -67,6 +77,16 @@ const ShowTable = ({action}) => {
   })}
 </tbody>
             </table>
+            {show&&
+            <Modal 
+            onDelete={handleDeleteModal} 
+            onClose={handleCloseModal}
+             btn_title="حذف"
+              modal_title="حذف ردیف"
+                modal_body="ایا از حذف این ردیف مطمئن هستید؟"
+                
+            />}
+            
    </div>
     )
 }
